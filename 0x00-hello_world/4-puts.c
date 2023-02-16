@@ -1,11 +1,11 @@
 /**
- * This program uses puts to print a string
+ * main - The program starts here
+ *
+ * Description: This program uses puts to print a string
+ * Return: An integer zero
  */
 #include <stdio.h>
 
-/**
- * The program starts here
- */
 int main(void)
 {
 	/*initialize the string*/
