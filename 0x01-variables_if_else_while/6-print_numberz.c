@@ -9,14 +9,14 @@
 
 int main(void)
 {
-	char a;
+	int a;
 
-	a = 48;
+	a = 0;
 
 
-	while (a < 58)
+	while (a < 10)
 {
-	putchar(a);
+	putchar(48 + a);
 	a++;
 }
 	putchar('\n');
