@@ -17,7 +17,7 @@ int main(void)
 	putchar(48 + a);
 	a++;
 }
-	while (b <=5)
+	while (b <= 5)
 {
 	putchar(97 + b);
 	b++;
