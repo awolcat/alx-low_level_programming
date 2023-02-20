@@ -1,2 +1,2 @@
 #!/bin/bash
-as -mysyntax==intel $CFILE
+AS -mysyntax==intel $CFILE
