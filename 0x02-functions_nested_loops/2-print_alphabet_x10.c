@@ -7,9 +7,7 @@
  * Return: Success 0
  */
 
-int main(void)
 
-{
 	char c = 'a';
 	int i;
 
@@ -17,8 +15,7 @@ int main(void)
 {	
 	for (c = 'a'; c <= 'z'; c++)
 {
-	print_alphabet_x10();
+	_putchar(c);
 }
 }
-	return(0);
-}
+
