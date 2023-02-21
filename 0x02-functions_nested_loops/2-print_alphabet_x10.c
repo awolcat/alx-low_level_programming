@@ -11,8 +11,9 @@ int main(void)
 
 {
 	int c = 'a';
+	int i;
 
-	for (int i = 0;i <=9; i++)
+	for (i = 0;i <=9; i++)
 {	
 	for (c = 'a'; c <= 'z'; c++)
 {
