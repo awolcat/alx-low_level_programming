@@ -17,7 +17,7 @@ int main(void)
 {	
 	for (c = 'a'; c <= 'z'; c++)
 {
-	print_alphabet_x10(0);
+	print_alphabet_x10(void);
 }
 }
 	return(0);
