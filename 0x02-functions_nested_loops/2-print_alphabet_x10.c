@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - check code
+ * print_alphabet_x10 - marks the start of execution
  *
  * Description: print alphabet 10x
  * Return: Success 0
