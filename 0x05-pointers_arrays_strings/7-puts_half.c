@@ -14,7 +14,7 @@ void puts_half(char *str)
 {
 	unsigned int i, n;
 
-	for (i = 0; i <= strlen(str); i++)
+	for (i = 0; i < strlen(str); i++)
 	{
 		if (strlen(str) % 2 == 0)
 		{
