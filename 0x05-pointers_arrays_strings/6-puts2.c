@@ -12,6 +12,8 @@ void puts2(char *str)
 {
 	unsigned int i, n;
 
+	n = 0;
+
 	while (str[n] != '\0')
 	{
 		n++;
