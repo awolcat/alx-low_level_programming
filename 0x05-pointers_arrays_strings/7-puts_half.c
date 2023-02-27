@@ -5,7 +5,6 @@
 /**
  * puts_half - print last half of a string
  * @str: the input string
- * 
  * Description: prints last half of string
  * Return: void
  */
