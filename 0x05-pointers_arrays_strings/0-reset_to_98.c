@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * reset_to_98 - reset value of parameter to 98
- * @*n: an address
+ * @n: an address
  *
  * Description: resset value using pointer
  * Return: void
