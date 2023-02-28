@@ -4,17 +4,20 @@
 /**
  * print_array - print n elements of an array
  * @n: number of elements to print
- * @a: array
+ * @array: array
  * Description: print n elements
  * Return: void
  */
-void print_array(int *a, int n)
+void print_array(int *array, int n)
 {
 	int i;
+	int p;
+
+	p = &array;
 
 	for (i = 0; i <= n; i++)
 	{
-		_putchar(*(a + i));
+		_putchar(*(p + i));
 
 		if (i < n)
 		{
