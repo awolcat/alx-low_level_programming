@@ -8,22 +8,23 @@
  * Description: print n elements
  * Return: void
  */
-void print_array(int *array, int n)
+void print_array(int *a, int n)
 {
-	int i;
-	int p;
+	int i, j;
+	int p[30];
 
-	p = &array;
 
-	for (i = 0; i <= n; i++)
+	for (i = 0; i < n; i++)
 	{
-		_putchar(*(p + i));
+		p[i] = *(a + i);
+		printf("%d", p[i]);
 
-		if (i < n)
+		for (j = 0; j < 1; j++)
 		{
-			_putchar(',');
-			_putchar(' ');
+			if (i < (n - 1))
+			printf(", ");
 		}
 	}
-	_putchar('\n');
+	printf("\n");
+
 }
