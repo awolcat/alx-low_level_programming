@@ -4,14 +4,14 @@
 /**
  * print_array - print n elements of an array
  * @n: number of elements to print
- * @array: array
+ * @a: array input
  * Description: print n elements
  * Return: void
  */
 void print_array(int *a, int n)
 {
 	int i, j;
-	int p[30];
+	int p[300];
 
 
 	for (i = 0; i < n; i++)
