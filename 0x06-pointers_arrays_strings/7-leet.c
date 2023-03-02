@@ -1,25 +1,47 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 /**
- * leet - function
- * @str: string
- * Description: function to replace 
- * Return: str
+ * leet - replaces chars with numbers
+ * @str: the input string
+ * Description: encode 43071 into string
+ * Return: string
  */
-char *leet(char *str) {
-    const char *leet_map[128] = {0}; // initialize to NULL
-    leet_map['a'] = leet_map['A'] = "4";
-    leet_map['e'] = leet_map['E'] = "3";
-    leet_map['o'] = leet_map['O'] = "0";
-    leet_map['t'] = leet_map['T'] = "7";
-    leet_map['l'] = leet_map['L'] = "1";
+char *leet(char *str)
+{
+	static char mystr[256];
+	int len = strlen(str);
+	int j = 0;
+	int i;
 
-    size_t len = strlen(str);
-    for (size_t i = 0; i < len; i++) {
-        if (leet_map[str[i]]) {
-            str[i] = *leet_map[str[i]];
-        }
-    }
+	for (i = 0; i < len; i++)
+	{
+		char c = str[i];
 
-	return str;
+		if (c == 'a' || c == 'A')
+		{
+			mystr[j++] = '4';
+		}
+		else if (c == 'e' || c == 'E')
+		{
+			mystr[j++] = '3';
+		}
+		else if (c == 'o' || c == 'O')
+		{
+			mystr[j++] = '0';
+		}
+		else if (c == 't' || c == 'T')
+		{
+			mystr[j++] = '7';
+		}
+		else if (c == 'l' || c == 'L')
+		{
+			mystr[j++] = '1';
+		}
+		else
+		{
+			mystr[j++] = c;
+	}
+	}
+	mystr[j] = '\0';
+	return (mystr);
 }
