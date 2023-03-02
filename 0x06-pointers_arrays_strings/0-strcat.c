@@ -7,27 +7,15 @@
  * Description: concatenates src to dest
  * Return: char*
  */
-
 char *_strcat(char *dest, char *src)
 {
-	int i, j;
-	int len = strlen(dest);
-	static char ch[1100];
-	char *p;
+	int len = 0;
+	int i = 0;
 
-	p = dest;
-	for (i = 0; i != '\0'; i++)
-	{
-		*(ch + i) = *(src + i);
-		dest[len + i] = *(ch + i);
-		src = ch;
-	}
-	for (j = len; j >= 0; j--)
-	{
-		*(p + j) = *(dest + j);
-	}
-	dest[len + i] = '\0';
+	while (dest[i++])
+		len++;
+	for (i = 0; src[i]; i++)
+		dest[len++] = src[i];
 
-	return (src);
-return (dest);
+	return (dest);
 }
