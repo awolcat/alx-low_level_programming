@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/**
+ * _strncpy - copy string 2 into string 1
+ * @dest: destination string
+ * @src: string to copy
+ * @n: number of chars to copy
+ * Description: str2 is copied to index 0 of str1
+ * Return: dest
+ */
 char *_strncpy(char *dest, char *src, int n)
 {
 	int j, len;
@@ -14,6 +22,6 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		dest[j] = src[j];
 	}
-	dest[len + j] = '\0';
+
 	return (dest);
 }
