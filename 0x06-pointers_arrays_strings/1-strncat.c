@@ -10,16 +10,20 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, j;
+	int i;
+	int j = 0;
 	int len = 0;
+	int sz;
 
+	long unsigned int s = sizeof(dest);
+
+	sz = (int)s;
 
 	for (i = 0; dest[i] != '\0'; i++)
 	{
 		len++;
 	}
-
-		for (j = 0; j < n; j++)
+		for (j = 0; j < n && j < sz; j++)
 		{
 			dest[len++] = src[j];
 		}
