@@ -10,18 +10,24 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int i;
+	int i, j;
 	int len = strlen(dest);
 	static char ch[1100];
+	char *p;
 
+	p = dest;
 	for (i = 0; i != '\0'; i++)
 	{
-		*(ch + i) = src[i];
+		*(ch + i) = *(src + i);
 		dest[len + i] = *(ch + i);
 		src = ch;
 	}
-	dest[len + i] = '\0';	
-	
+	for (j = len; j >= 0; j--)
+	{
+		*(p + j) = *(dest + j);
+	}
+	dest[len + i] = '\0';
+
 	return (src);
 return (dest);
 }
