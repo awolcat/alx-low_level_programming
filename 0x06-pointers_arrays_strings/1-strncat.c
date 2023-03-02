@@ -4,17 +4,14 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
-	char * cat[1100];
-	int len = strlen(dest);
+	int len = 0;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; dest[i] != '\0'; i++)
 	{
-		*cat[i] = dest[i];
+		len++;
 	}
-	for (j = 0, k = 0; j < (len +  n); j++, k++)
-	{
-		*cat[j] = src[k];
-	}
-	dest = *cat;
-		return (dest);
+	for (j = 0; j < n; j++)
+		dest[len++] = src[j];
+
+	return (dest);
 }
