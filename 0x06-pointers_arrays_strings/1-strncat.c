@@ -15,7 +15,7 @@ char *_strncat(char *dest, char *src, int n)
 	int len = 0;
 	int sz;
 
-	long unsigned int s = sizeof(dest);
+	unsigned long int s = sizeof(dest);
 
 	sz = (int)s;
 
