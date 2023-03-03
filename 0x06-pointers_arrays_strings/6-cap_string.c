@@ -1,33 +1,32 @@
 #include <stdio.h>
-#include <string.h>
-
+#include <ctype.h>
+/**
+ * cap_string - capitalize first word after seperator
+ * @str: input string
+ * Description: capitalize!
+ * Return: string
+ */
 char *cap_string(char *str)
 {
-	unsigned int i;
+	char sep[] = {',', '.', '?', '!', ';', 9, 10, '(', ')', '{', '}', 32, 34};
+	int i = 0;
+	int j = 13;
+	int k;
+	char filt;
 
-	if (str[0] > 'a' && str[0] < 'z')
-		str[0] = str[0] - 'a' + 'A';
-
-	for (i = 0; i < strlen(str); i++)
+	while (str[i])
 	{
-		if ((str[i] == 32) && (str[i + 1] >= 'a') && (str[i + 1] <= 'z'))
+		k = 0;
+		while (k < j)
 		{
-			str[i + 1] = str[i + 1] - 32;
+			if ((i == 0 || str[i - 1] == sep[k]))
+			{
+				filt = str[i];
+				str[i] = toupper(filt);
+			}
+		k++;
 		}
-		else if (str[i] == 10)
-		{
-			str[i + 1] = str[i + 1] +'A' - 'a';
-		}
-		else if (str[i] == 9)
-		{
-			str[i + 1] = str[i + 1] + 'A' - 'a';
-		}
-		else if ((str[i] == 46) && (str[i + 1] >= 'a') && (str[i + 1] <= 'z'))
-		{
-			str[i + 1] = str[i + 1] + 'A' - 'a';
-		}
-
-
+	i++;
 	}
 	return (str);
 }
