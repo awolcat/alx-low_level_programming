@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+
 /**
  * leet - replaces chars with numbers
  * @str: the input string
@@ -8,40 +8,24 @@
  */
 char *leet(char *str)
 {
-	static char mystr[256];
-	int len = strlen(str);
+	char mystr[] = {'A', 'a', 'E', 'e', 'O', 'o', 'T', 't', 'L', 'l'};
+	char new[] = {'4', '3', '0', '7', '1'};
 	int j = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
+	while (str[j])
 	{
-		char c = str[i];
+		i = 0;
+		while (i < 10)
+		{
+			if (str[j] == mystr[i])
+			{
+				str[j] = new[i / 2];
 
-		if (c == 'a' || c == 'A')
-		{
-			mystr[j++] = '4';
+			}
+		i++;
 		}
-		else if (c == 'e' || c == 'E')
-		{
-			mystr[j++] = '3';
-		}
-		else if (c == 'o' || c == 'O')
-		{
-			mystr[j++] = '0';
-		}
-		else if (c == 't' || c == 'T')
-		{
-			mystr[j++] = '7';
-		}
-		else if (c == 'l' || c == 'L')
-		{
-			mystr[j++] = '1';
-		}
-		else
-		{
-			mystr[j++] = c;
+	j++;
 	}
-	}
-	mystr[j] = '\0';
-	return (mystr);
+	return (str);
 }
