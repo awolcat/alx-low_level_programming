@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 /**
  * _strpbrk - find matching character
  * @s: the string to search
@@ -9,18 +11,19 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j;
+	int i, j, lens;
 
-	for (i = 0; *(s + i) != '\0'; i++)
+	lens = (int)strlen(s);
+
+	for (i = 0; i <= lens; i++)
 	{
 		for (j = 0; *(accept + j) != '\0'; j++)
 		{
 			if (*(s + i) == *(accept + j))
 			{
-				return (s + i);
+				return(s + i);
 			}
 		}
 	}
-	return (s + i);
-return (NULL);
+	return (NULL);
 }
