@@ -12,10 +12,10 @@
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
-			if (*(haystack + i) == (*needle))
-			{
-				return ((haystack + i));
-			}
+		if (*(haystack + i) == *needle)
+		{
+		return ((haystack + i));
+		}
 	}
 	return (NULL);
 }
