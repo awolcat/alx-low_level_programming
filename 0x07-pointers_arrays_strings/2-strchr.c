@@ -9,16 +9,13 @@
 char *_strchr(char *s, char c)
 {
 	int i;
-	int sz = (int)sizeof(s);
 
-	for (i = 0; i <= sz; i++)
+	for (i = 0; *(s + i) != '\0'; i++)
 	{
 		if (*(s + i) == c)
 		{
 			return (s + i);
 		}
 	}
-	if (*(s + i) == c)
-		return (s + i);
 return (NULL);
 }
