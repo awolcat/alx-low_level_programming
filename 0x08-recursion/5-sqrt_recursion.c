@@ -1,20 +1,28 @@
 #include <stdio.h>
-
+#include "main.h"
+/**
+ * _sqrt_recursion - calls a fn to find sqrt
+ * @n: Number to evaluate
+ * Description: check fn
+ * Return: an int
+ */
 int _sqrt_recursion(int n)
 {
-	int y = 1;
-
-	if (n < 0)
-	{
+	return (sqr(n, 0));
+}
+/**
+ * sqr - finds the natural root of a number
+ * @n: the number
+ * @i: the root
+ * Description: check fn
+ * Return: an int i
+ */
+int sqr(int n, int i)
+{
+	i++;
+	if (i * i > n)
 		return (-1);
-	}
-	if (n == 0)
-	{
-		return (0);
-	}
-	else
-	{
-		y = y + 2;
-		return (1 + _sqrt_recursion(n - y));
-	}
+	if (i * i == n)
+		return (i);
+	return (sqr(n, i));
 }
