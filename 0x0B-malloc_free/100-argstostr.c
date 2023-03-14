@@ -22,8 +22,9 @@ char *argstostr(int ac, char **av)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			total++;
+			;
 		}
+		total = total + j;
 	}
 	my_array = malloc(sizeof(char) * (total + ac));
 	if (my_array == NULL)
