@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	if (change < 0)
 	{
 		printf("0\n");
+		return (1);
 	}
 	for (j = 0; j < 5; j++)
 	{
