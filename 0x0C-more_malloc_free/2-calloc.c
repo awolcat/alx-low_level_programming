@@ -7,7 +7,7 @@
  * @size: size of each member
  * Description: memory allocated is nmemb multiplied by size
  * Return: NULL or ptr to memory allocated
- */ 
+ */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *ptr;
