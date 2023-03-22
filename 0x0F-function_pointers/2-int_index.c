@@ -29,12 +29,12 @@ int int_index(int *array, int size, int (*cmp)(int))
 			arr[i] = array[i];
 		}
 		j = 0;
-		while ((*cmp)(arr[j]) < 1 && j < size)
+		while ((*cmp)(arr[j]) != 1 && j < size)
 		{
 			(*cmp)(arr[j]);
 			j += 1;
 		}
-		if (j == (size - 1))
+		if (j == size)
 			return (-1);
 	}
 	return (j);
