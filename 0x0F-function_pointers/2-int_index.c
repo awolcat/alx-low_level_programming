@@ -11,13 +11,13 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i, j;
-	int *arr;
+	int j;
 
 	if (size <= 0)
 		return (-1);
 	if (array != NULL && cmp != NULL)
 	{
+		/**
 		arr = malloc(sizeof(int) * size);
 		if (arr == NULL)
 		{
@@ -27,11 +27,11 @@ int int_index(int *array, int size, int (*cmp)(int))
 		for (i = 0; i < size; i++)
 		{
 			arr[i] = array[i];
-		}
+		}*/
 		j = 0;
-		while ((*cmp)(arr[j]) != 1 && j < size)
+		while ((*cmp)(array[j]) != 1 && j < size)
 		{
-			(*cmp)(arr[j]);
+			(*cmp)(array[j]);
 			j += 1;
 		}
 		if (j == size)
