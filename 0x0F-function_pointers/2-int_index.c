@@ -29,7 +29,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 			arr[i] = array[i];
 		}*/
 		j = 0;
-		while ((*cmp)(array[j]) > 0 && j < size)
+		while ((*cmp)(array[j]) <= 0 && j < size)
 		{
 			(*cmp)(array[j]);
 			j += 1;
