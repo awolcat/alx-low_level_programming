@@ -39,7 +39,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (j = 0; owner[j] != '\0'; j++)
 		strlen2++;
 
-	b = malloc(sizeof(char) * (strlen2 + 1));
+	b = malloc(sizeof(char) * (strlen2 + 2));
 	if (b == NULL)
 		return (NULL);
 	for (j = 0; owner[j] != '\0'; j++)
