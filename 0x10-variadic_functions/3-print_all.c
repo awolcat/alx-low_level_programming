@@ -51,7 +51,6 @@ int print_s(va_list ap)
 	{
 		printf("(nil)");
 	}
-	else
 	printf("%s", va_arg(ap, char *));
 	return (0);
 }
