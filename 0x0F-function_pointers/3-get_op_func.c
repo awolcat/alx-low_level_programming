@@ -7,7 +7,7 @@
  * Description: select a function
  * Return: an integer index of selected operation
  */
-int (*get_op_func(char *s))(int a, int b)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 	{"+", op_add},
@@ -23,9 +23,11 @@ int (*get_op_func(char *s))(int a, int b)
 		return (NULL);
 
 	i = 0;
-	while (ops[i].f != NULL && ops[i].op[0] != s[0])
+	while (ops[i].op != NULL)
 	{
+		if (*(ops[i].op) == *s)
 		return (ops[i].f);
+
 		i++;
 	}
 	return (ops[i].f);
