@@ -23,7 +23,9 @@ int print_i(va_list ap)
  */
 int print_c(va_list ap)
 {
-	printf("%c", va_arg(ap, int));
+	int n = va_arg(ap, int);
+
+	putchar(n);
 	return (0);
 }
 /**
@@ -65,6 +67,8 @@ void print_all(const char * const format, ...)
 {
 	va_list ap;
 	int i, j;
+	char *sep = ", ";
+	char *nil = "";
 
 	sl_ct act[] = {
 			{"i", print_i},
@@ -77,19 +81,22 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 
 	i = 0;
-	while (act[i].fmt)
+	while (format[i] != '\0')
 	{
 		j = 0;
-		while (j < 4)
+		while (act[j].fmt)
 		{
-			if (*(act[i].fmt) == format[j])
+			if (*(act[j].fmt) == format[i])
 			{
-				(act[i].f)(ap);
+				printf("%s", nil);
+				(act[j].f)(ap);
 			}
 			j++;
 		}
+		nil = sep;
 		i++;
 	}
+
 	printf("\n");
 	va_end(ap);
 }
