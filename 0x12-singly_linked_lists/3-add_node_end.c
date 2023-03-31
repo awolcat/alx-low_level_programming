@@ -32,6 +32,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (!strdup(str))
 	{
 		free(end);
+		free(temp);
 		return (NULL);
 	}
 	/* if list has 0 length, new node is head */
@@ -54,7 +55,5 @@ list_t *add_node_end(list_t **head, const char *str)
 		if ((temp->next) == end)
 			return (end);
 	}
-	free(temp);
-	free(end);
 	return (NULL);
 }
