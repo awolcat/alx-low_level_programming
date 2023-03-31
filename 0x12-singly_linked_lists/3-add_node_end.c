@@ -15,22 +15,30 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	end = malloc(sizeof(list_t));
 	if (!end)
+	{
+		free(end);
 		return (NULL);
+	}
 	temp = malloc(sizeof(list_t));
 	if (!temp)
+	{
+		free(temp);
 		return (NULL);
+	}
 	end->len = strlen(str);
 	end->next = NULL;
 	end->str = strdup(str);
 	/* if strdup fails, free memory, return NULL */
 	if (!strdup(str))
 	{
+		free(end);
 		return (NULL);
 	}
 	/* if list has 0 length, new node is head */
 	if (*head == NULL)
 	{
 		*head = end;
+		free(temp);
 		return (end);
 	}
 	/*
@@ -46,5 +54,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		if ((temp->next) == end)
 			return (end);
 	}
+	free(temp);
+	free(end);
 	return (NULL);
 }
