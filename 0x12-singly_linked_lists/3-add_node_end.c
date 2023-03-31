@@ -22,20 +22,27 @@ list_t *add_node_end(list_t **head, const char *str)
 	end->str = strdup(str);
 	end->len = strlen(str);
 	end->next = NULL;
-	if (!str)
+	/* if strdup fails, free memory, return NULL */
+	if (!strdup(str))
 	{
+		free(temp);
 		free(end);
 		return (NULL);
 	}
+	/* if list has 0 length, new node is head */
 	if (*head == NULL)
 	{
 		*head = end;
 		return (end);
 	}
+	/*
+	 * else get another pointer to head and iterate to end
+	 * of list and add new node
+	 */
 	else
 	{
 		temp = *head;
-		while (temp->next != NULL)
+		while (temp)
 			temp = temp->next;
 		temp->next = end;
 		return (end);
