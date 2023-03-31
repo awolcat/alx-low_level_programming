@@ -37,12 +37,14 @@ list_t *add_node_end(list_t **head, const char *str)
 	 * else get another pointer to head and iterate to end
 	 * of list and add new node
 	 */
-	else
+	else if (*head)
 	{
 		temp = *head;
-		while (temp)
+		while ((temp->next) != NULL)
 			temp = temp->next;
 		temp->next = end;
 		return (end);
 	}
+	else
+		return (NULL);
 }
