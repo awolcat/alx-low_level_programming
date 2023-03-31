@@ -19,14 +19,12 @@ list_t *add_node_end(list_t **head, const char *str)
 	temp = malloc(sizeof(list_t));
 	if (!temp)
 		return (NULL);
-	end->str = strdup(str);
 	end->len = strlen(str);
 	end->next = NULL;
+	end->str = strdup(str);
 	/* if strdup fails, free memory, return NULL */
 	if (!strdup(str))
 	{
-		free(temp);
-		free(end);
 		return (NULL);
 	}
 	/* if list has 0 length, new node is head */
