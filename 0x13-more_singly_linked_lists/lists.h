@@ -2,6 +2,13 @@
 #define LISTS_H
 
 #include <stddef.h>
+/**
+ * struct listint_s - singly linked list
+ * @n: data - an integer
+ * @next: pointer to next node
+ *
+ * Description: singly linked list of integers
+ */
 typedef struct listint_s
 {
 	int n;
