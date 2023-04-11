@@ -30,7 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	if (strlen(out) != (unsigned long int)bytes)
 		return (0);
-	bytes2 = write(1, out, bytes);
+	bytes2 = write(STDOUT_FILENO, out, bytes);
 	if (bytes != bytes2)
 		return (0);
 	close(fd);
