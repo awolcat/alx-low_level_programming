@@ -15,23 +15,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char *out;
-	size_t bytes, bytes2;
+	ssize_t bytes, bytes2;
 
 	if (filename == NULL)
 		return (0);
-	fd = open(filename, O_RDONLY, 00400);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 	out = malloc(sizeof(char) * letters + 1);
 	if (!out)
 		return (0);
 	bytes = read(fd, out, letters);
-	if ((read(fd, out, letters)) == -1)
+	if (bytes == -1)
 		return (0);
-	if (strlen(out) != bytes)
+	if (strlen(out) != (unsigned long int)bytes)
 		return (0);
 	bytes2 = write(1, out, bytes);
-	if ((write(1, out, bytes)) == -1 || bytes != bytes2)
+	if (bytes != bytes2)
 		return (0);
 	close(fd);
 	return (bytes);
