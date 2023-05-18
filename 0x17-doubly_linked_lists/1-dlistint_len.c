@@ -4,7 +4,7 @@
  * dlistint_len - find the legth of a doubly linked list
  * @h: head of the list
  *
- * Return: count
+ * Return: length
  */
 size_t dlistint_len(const dlistint_t *h)
 {
@@ -14,8 +14,8 @@ size_t dlistint_len(const dlistint_t *h)
 	temp = h;
 	while (temp)
 	{
-		count += 1;
+		length += 1;
 		temp = temp->next;
 	}
-	return (count);
+	return (length);
 }
