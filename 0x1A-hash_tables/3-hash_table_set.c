@@ -26,9 +26,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!node)
 		return (0);
 	node->key = malloc(sizeof(char) * strlen(key) + 1);
+	if (!node->key)
+		return (0);
 	node->value = malloc(sizeof(char) * strlen(value) + 1);
+	if (!node->value)
+		return (0);
 	strcpy(node->key, key);
-	strcpy(node->value,value);
+	strcpy(node->value, value);
 	node->next = NULL;
 
 	/*Add node to hash table*/
