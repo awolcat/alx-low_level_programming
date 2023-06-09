@@ -17,8 +17,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/*hash_node_t *temp = NULL;*/
 
 	if (!key || strlen(key) == 0)
+	{
+		/*printf("Key cannot be empty\n");*/
 		return (0);
-
+	}
+	if (!value || strlen(value) == 0)
+		value = "";
 	index = key_index((const unsigned char *)key, ht->size);
 
 	/*Initialize the node*/
@@ -38,20 +42,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = node;
-/**		printf("table[%ld], data: %s %s\n", index, ht->array[index]->key, ht->array[index]->value);
- *		printf("-----------------------------------------------------------------\n");
- */	}
+	}
 	/*If index is already occupied, handle collision by chaining*/
 	else
 	{
 		node->next = ht->array[index];
 		ht->array[index] = node;
-/**		temp = node;
- *		while (temp)
- *		{
- *			printf("table[%ld], data: %s %s\n", index, temp->key, temp->value);
- *			temp = temp->next;
- *		}
- */	}
+	}
 	return (1);
 }
