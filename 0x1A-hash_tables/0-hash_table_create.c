@@ -11,12 +11,12 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table = NULL;
 	hash_node_t **arr = NULL;
-/*	unsigned long int index = 0;
-*/
+	unsigned long int index = 0;
+
 	if (size == 0)
 		return (NULL);
 
-	table = malloc(sizeof(table));
+	table = malloc(sizeof(hash_node_t));
 	if (!table)
 		return (NULL);
 
@@ -27,11 +27,11 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	/*Initialize hash table*/
-/*	while (index < size)
+	while (index < size)
 	{
 		table->array[index] = NULL;
 		index++;
 	}
-*/	return (table);
+	return (table);
 }
 
