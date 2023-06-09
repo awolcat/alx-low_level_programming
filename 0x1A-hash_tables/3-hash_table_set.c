@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node = NULL;
-	hash_node_t *temp = NULL;
+	/*hash_node_t *temp = NULL;*/
 
 	if (!key || strlen(key) == 0)
 		return (0);
@@ -34,18 +34,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	strcpy(node->key, key);
 	strcpy(node->value, value);
 	node->next = NULL;
-
 	/*Add node to hash table*/
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = node;
-	}
+/**		printf("table[%ld], data: %s %s\n", index, ht->array[index]->key, ht->array[index]->value);
+ *		printf("-----------------------------------------------------------------\n");
+ */	}
 	/*If index is already occupied, handle collision by chaining*/
 	else
 	{
-		temp = ht->array[index];
-		node->next = temp;
+		node->next = ht->array[index];
 		ht->array[index] = node;
-	}
+/**		temp = node;
+ *		while (temp)
+ *		{
+ *			printf("table[%ld], data: %s %s\n", index, temp->key, temp->value);
+ *			temp = temp->next;
+ *		}
+ */	}
 	return (1);
 }
