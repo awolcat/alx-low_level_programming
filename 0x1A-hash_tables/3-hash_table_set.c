@@ -28,46 +28,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	node->key = malloc(sizeof(char) * strlen(key) + 1);
 	node->value = malloc(sizeof(char) * strlen(value) + 1);
-	strcpy(node->key, key);
-	strcpy(node->value, value);
-	
+	node->key = strdup(key);
+	node->value = strdup(value);
+
 	/* Check if the key exists*/
-        current = ht->array[index];
-        while (current)
-        {
-                if (strcmp(current->key, key) == 0)
-                {       /*overwrite old value*/
-                        strcpy(current->value, value);
+	current = ht->array[index];
+	while (current)
+	{
+		if (strcmp(current->key, key) == 0)
+		{	/*overwrite old value*/
+			strcpy(current->value, value);
+			free(node);
 			update = 1;
-                }
-                current = current->next;
-        }
+		}
+		current = current->next;
+	}
 	if (update == 0)
 	{
 		node->next = ht->array[index];
 		/*Add node to hash table*/
 		ht->array[index] = node;
 	}
-	/*
-	if (ht->array[index] == 0)
-	{
-		ht->array[index] = node;
-	}
-	else
-        {
-                node->next = ht->array[index];
-                ht->array[index] = node;
-        }
-	
-	printf("index: %ld key: %s value: %s\n", index, ht->array[index]->key, ht->array[index]->value);
-	printf("---------------------------------\n");
-	temp = ht->array[index];
-	while (temp)
-	{
-		printf("index: %ld key: %s value: %s\n", index, temp->key, temp->value);
-		temp = temp->next;
-	}
-	printf("+++++++++++++++++++++++++++++++++++\n");
-	*/
 	return (1);
 }
