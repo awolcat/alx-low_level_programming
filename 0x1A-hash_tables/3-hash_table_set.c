@@ -14,7 +14,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node = NULL;
-	hash_node_t *temp = NULL;
 	hash_node_t *current = NULL;
 	int update = 0;
 
