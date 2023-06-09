@@ -1,13 +1,16 @@
 #include "hash_tables.h"
 #include <stdlib.h>
-
+/**
+ * hash_table_delete - delete a hash table
+ * @ht: table
+ *
+ * Return: void
+ */
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i = 0;
 	hash_node_t *temp = NULL;
-/*	hash_node_t *list = NULL;
-	hash_node_t *next = NULL;
-*/
+
 	for (i = 0; i < ht->size; i++)
 	{
 		temp = ht->array[i];
@@ -24,7 +27,12 @@ void hash_table_delete(hash_table_t *ht)
 	free(ht);
 
 }
-
+/**
+ * free_list - free linked list
+ * @head: head
+ *
+ * Return: void
+ */
 void free_list(hash_node_t *head)
 {
 	hash_node_t *temp = NULL;

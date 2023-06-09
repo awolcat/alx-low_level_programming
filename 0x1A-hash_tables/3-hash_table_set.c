@@ -19,9 +19,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!key || strlen(key) == 0)
 		return (0);
-	if (!value || strlen(value) == 0)
+/*	if (!value)
 		value = "";
-	index = key_index((const unsigned char *)key, ht->size);
+*/	index = key_index((const unsigned char *)key, ht->size);
 	/*Initialize the node*/
 	node = malloc(sizeof(hash_node_t));
 	if (!node)
