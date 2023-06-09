@@ -14,6 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node = NULL;
+	hash_node_t *temp = NULL;
 
 	if (!key || strlen(key) == 0)
 		return (0);
@@ -28,17 +29,31 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->value = malloc(sizeof(char) * strlen(value) + 1);
 	strcpy(node->key, key);
 	strcpy(node->value, value);
-	node->next = ht->array[index];
-	/*Add node to hash table
-	if (ht->array[index] == NULL)*/
-	
-	ht->array[index] = node;
-
+	node->next = NULL;
+	/*Add node to hash table*/
+	if (ht->array[index] == 0)
+	{
+		ht->array[index] = node;
+	}
+	else
+        {
+                node->next = ht->array[index];
+                ht->array[index] = node;
+        }
+	/*printf("index: %ld key: %s value: %s\n", index, ht->array[index]->key, ht->array[index]->value);
+	printf("---------------------------------\n");
+	temp = ht->array[index];
+	while (temp)
+	{
+		printf("index: %ld key: %s value: %s\n", index, temp->key, temp->value);
+		temp = temp->next;
+	}*/
 	/*If index is already occupied, handle collision by chaining
 	else
 	{
 		node->next = ht->array[index];
 		ht->array[index] = node;
 	}*/
+	printf("+++++++++++++++++++++++++++++++++++\n");
 	return (1);
 }
