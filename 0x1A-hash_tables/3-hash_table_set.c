@@ -37,6 +37,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(current->key, key) == 0)
 		{	/*overwrite old value*/
 			strcpy(current->value, value);
+			free(node->key);
+			free(node->value);
 			free(node);
 			update = 1;
 		}
@@ -45,7 +47,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (update == 0)
 	{
 		node->next = ht->array[index];
-		/*Add node to hash table*/
 		ht->array[index] = node;
 	}
 	return (1);
