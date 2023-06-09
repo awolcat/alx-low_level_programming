@@ -14,6 +14,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node = NULL;
+	hash_node_t *temp = NULL;
+	hash_node_t *current = NULL;
+	int update = 0;
 
 	if (!key || strlen(key) == 0)
 		return (0);
@@ -28,8 +31,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->value = malloc(sizeof(char) * strlen(value) + 1);
 	strcpy(node->key, key);
 	strcpy(node->value, value);
-	node->next = NULL;
-	/*Add node to hash table*/
+	
+	/* Check if the key exists*/
+        current = ht->array[index];
+        while (current)
+        {
+                if (strcmp(current->key, key) == 0)
+                {       /*overwrite old value*/
+                        strcpy(current->value, value);
+			update = 1;
+                }
+                current = current->next;
+        }
+	if (update == 0)
+	{
+		node->next = ht->array[index];
+		/*Add node to hash table*/
+		ht->array[index] = node;
+	}
+	/*
 	if (ht->array[index] == 0)
 	{
 		ht->array[index] = node;
@@ -39,20 +59,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
                 node->next = ht->array[index];
                 ht->array[index] = node;
         }
-	/*printf("index: %ld key: %s value: %s\n", index, ht->array[index]->key, ht->array[index]->value);
+	
+	printf("index: %ld key: %s value: %s\n", index, ht->array[index]->key, ht->array[index]->value);
 	printf("---------------------------------\n");
 	temp = ht->array[index];
 	while (temp)
 	{
 		printf("index: %ld key: %s value: %s\n", index, temp->key, temp->value);
 		temp = temp->next;
-	}*/
-	/*If index is already occupied, handle collision by chaining
-	else
-	{
-		node->next = ht->array[index];
-		ht->array[index] = node;
 	}
-	printf("+++++++++++++++++++++++++++++++++++\n");*/
+	printf("+++++++++++++++++++++++++++++++++++\n");
+	*/
 	return (1);
 }
