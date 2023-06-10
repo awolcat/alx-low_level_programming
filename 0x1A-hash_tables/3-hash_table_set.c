@@ -31,18 +31,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->value = strdup(value);
 	/* Check if the key exists*/
 	current = ht->array[index];
-	while (current)
-	{
-		if (strcmp(current->key, key) == 0)
-		{	/*overwrite old value*/
-			strcpy(current->value, value);
-			free(node->key);
-			free(node->value);
-			free(node);
-			update = 1;
-		}
-		current = current->next;
-	}
+	update = check_duplicate(current, node, value);
 	/* Add a node if key does not exist */
 	current = ht->array[index];
 	if (update != 1)
@@ -59,4 +48,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 	}
 	return (1);
+}
+
+/**
+ * check_duplicate - check for duplicate keys in a bucket
+ * @current: The bucket (linked list)
+ * @node: The node
+ * @value: value associated with key to be added
+ *
+ * Return: 1 if key already exists
+ */
+int check_duplicate(hash_node_t *current, hash_node_t *node, const char *value)
+{
+	while (current)
+	{
+		if (strcmp(current->key, node->key) == 0)
+		{       /*overwrite old value*/
+			strcpy(current->value, value);
+			free(node->key);
+			free(node->value);
+			free(node);
+			return (1);
+		}
+		current = current->next;
+	}
+	return (0);
 }
