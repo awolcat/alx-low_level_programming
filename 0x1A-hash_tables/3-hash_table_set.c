@@ -25,8 +25,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node = malloc(sizeof(hash_node_t));
 	if (!node)
 		return (0);
-	node->key = malloc(sizeof(char) * strlen(key) + 1);
-	node->value = malloc(sizeof(char) * strlen(value) + 1);
 	node->key = strdup(key);
 	node->value = strdup(value);
 	/* Check if the key exists*/
@@ -63,8 +61,8 @@ int check_duplicate(hash_node_t *current, hash_node_t *node, const char *value)
 	while (current)
 	{
 		if (strcmp(current->key, node->key) == 0)
-		{       /*overwrite old value*/
-			strcpy(current->value, value);
+		{       /* overwrite old value */
+			current->value = strdup(value);
 			free(node->key);
 			free(node->value);
 			free(node);
