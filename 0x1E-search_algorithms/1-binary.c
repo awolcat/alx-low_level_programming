@@ -35,7 +35,7 @@ int extendo(int *array, size_t lb, size_t ub, int value)
 {
 	size_t mid = 0;
 
-	if (lb > ub)
+	if (lb > ub || array == NULL)
 		return (-1);
 
 	mid = lb + ((ub - lb) / 2);
